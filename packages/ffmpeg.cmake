@@ -39,6 +39,7 @@ ExternalProject_Add(ffmpeg
         uavs3d
         davs2
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
+    GIT_TAG n6.0
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
     UPDATE_COMMAND ""
@@ -48,6 +49,7 @@ ExternalProject_Add(ffmpeg
         --arch=${TARGET_CPU}
         --target-os=mingw32
         --target-exec=wine
+        --pkg-config=pkgconf
         --pkg-config-flags=--static
         --enable-cross-compile
         --enable-runtime-cpudetect
@@ -60,7 +62,7 @@ ExternalProject_Add(ffmpeg
         --enable-gmp
         --enable-libass
         --enable-libbluray
-        --enable-libfreetype
+        # --enable-libfreetype
         --enable-libfribidi
         --enable-libmodplug
         --enable-libopenmpt
@@ -87,15 +89,17 @@ ExternalProject_Add(ffmpeg
         --enable-libsrt
         --enable-libvpl
         --enable-libjxl
-        --enable-libplacebo
+	    --enable-libplacebo
         --enable-libshaderc
         --enable-libzvbi
-        --enable-libaribcaption
+	    # --enable-libaribcaption
         --enable-cuda
         --enable-cuvid
         --enable-nvdec
         --enable-nvenc
         --enable-amf
+        --enable-shared
+        --disable-static
         --disable-doc
         --disable-vaapi
         --disable-vdpau

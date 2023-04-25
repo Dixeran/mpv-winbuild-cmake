@@ -7,6 +7,7 @@ ExternalProject_Add(libplacebo
         glad
         libdovi
     GIT_REPOSITORY https://github.com/haasn/libplacebo.git
+    GIT_TAG v5.264.1
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
     GIT_SUBMODULES ""
@@ -20,6 +21,7 @@ ExternalProject_Add(libplacebo
         --cross-file=${MESON_CROSS}
         --buildtype=release
         --default-library=static
+        -Dvulkan=enabled
         -Dvulkan-registry='${MINGW_INSTALL_PREFIX}/share/vulkan/registry/vk.xml'
         -Ddemos=false
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
